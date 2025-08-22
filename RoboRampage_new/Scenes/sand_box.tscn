@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgql3xbfinouc"]
+[gd_scene load_steps=7 format=3 uid="uid://dgql3xbfinouc"]
 
 [ext_resource type="PackedScene" uid="uid://c0ehop33u5lgu" path="res://Scenes/player.tscn" id="1_7jtdp"]
+[ext_resource type="Material" uid="uid://bxswwlhg5s5tn" path="res://Materials/black.tres" id="1_e53ks"]
+[ext_resource type="Material" uid="uid://bn6tnkrqmtp18" path="res://Materials/purple.tres" id="2_ukxf1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_47lmy"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,8 +28,17 @@ shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("1_e53ks")
 use_collision = true
 size = Vector3(64, 1, 64)
 
 [node name="Player" parent="." instance=ExtResource("1_7jtdp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="LevelObjects" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24562, 0.5, 0)
+use_collision = true
+size = Vector3(3, 1, 3)
+material = ExtResource("2_ukxf1")
